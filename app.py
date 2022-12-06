@@ -147,13 +147,12 @@ if check_password():
     #help = st.sidebar.button("Help", help=text)
 #st.sidebar.success("Select a page from the drop-down menu.")
     if choice == "Home":
-            st.image("https://images.squarespace-cdn.com/content/v1/"
-                 "588f9607bebafbc786f8c5f8/1607924812500-Y1JR8L6XP5NKF2YPHDUX/image6.png", use_column_width=True)
+            st.image("welcome_image.png", use_column_width=True)
             st.markdown("<h1 style='text-align: center; color: black;'>"
                         "Welcome! To access different pages of the application "
                         "and predict customer churn, use the dropdown list on the left-hand side of "
                         "the page.</h1>", unsafe_allow_html=True)
-            st.sidebar.image("/Users/andrewpullar/Downloads/home-page.png", width=100)
+            st.sidebar.image("home-page.png", width=100)
             st.sidebar.markdown("**Help:** ")
             learn =  st.sidebar.selectbox("What would you like to learn more about?", listo)
             if learn == "Page Description":
@@ -166,7 +165,7 @@ if check_password():
 
     elif choice == 'Exploratory Data Analysis':
             st.title("Exploratory Data Analysis")
-            st.sidebar.image("https://miro.medium.com/max/1200/1*PKXC0FeXQc5LVmqhJ8HnVg.png", width=125)
+            st.sidebar.image("EDA sidebar.png", width=125)
             st.sidebar.markdown("**Help:** ")
             learn = st.sidebar.selectbox("What would you like to learn more about?", listo)
             if learn == "Page Description":
@@ -210,7 +209,7 @@ if check_password():
                     )
 
                     code = '''#load data
-    churn = pd.read_csv('/Users/andrewpullar/Downloads/Telco_customer_churn.csv')
+    churn = pd.read_csv('Telco_customer_churn.csv')
     churn.head(5)'''
                     st.markdown("**Code:**")
                     st.code(code, language='python')
@@ -237,8 +236,8 @@ if check_password():
 
                 if sc == "Customer churn overview":
                     st.markdown('**Customer Churn**')
-                    st.image("/Users/andrewpullar/Downloads/churntotals.png")
-                    with open("/Users/andrewpullar/Downloads/churntotals.png", "rb") as file:
+                    st.image("churntotals.png")
+                    with open("churntotals.png", "rb") as file:
                         btn = st.download_button(
                             label="Download image",
                             data=file,
@@ -259,8 +258,8 @@ st.plotly_chart(plot2)'''
                     st.code(code, language='python')
 
                     st.markdown('**Top 10 reasons for Customer Churn**')
-                    st.image("/Users/andrewpullar/Downloads/churnreasons.png")
-                    with open("/Users/andrewpullar/Downloads/churnreasons.png", "rb") as file:
+                    st.image("churnreasons.png")
+                    with open("churnreasons.png", "rb") as file:
                         btn = st.download_button(
                             label="Download image",
                             data=file,
@@ -312,10 +311,10 @@ st.plotly_chart(plot2)'''
                     st.pyplot(fig4)
 
                     st.markdown('**Customer Churn based on tenure and monthly charges**')
-                    st.image("/Users/andrewpullar/Desktop/four.png")
+                    st.image("four.png")
     elif choice == 'Data Cleaning':
         st.title("Data Cleaning")
-        st.sidebar.image("https://cdn.technologyadvice.com/wp-content/uploads/2022/06/Data-Cleaning-scaled.jpeg")
+        st.sidebar.image("data cleaning sidebar.jpeg")
         st.sidebar.markdown("**Help:** ")
         learn = st.sidebar.selectbox("What would you like to learn more about?", listo)
         if learn == "Page Description":
@@ -355,14 +354,14 @@ st.plotly_chart(plot2)'''
         #st.markdown("**Code:**")
         st.code(code, language='python')
         st.markdown('**Checking for outliers**')
-        st.image("/Users/andrewpullar/Downloads/outliers.png")
+        st.image("outliers.png")
         code = '''#Convert Total Charges to numeric
     churn.loc[(churn['Total Charges'] == ' '), 'Total Charges'] = 0 
     churn['Total Charges'] = pd.to_numeric(churn['Total Charges'])'''
         #st.markdown("**Code:**")
         st.code(code, language='python')
         st.markdown('**Checking for missing values**')
-        st.image("/Users/andrewpullar/Downloads/missing.png")
+        st.image("missing.png")
         code = '''# missing data
         md = churn.isnull().sum()
         missing = pd.concat([md], axis=1, keys=['Missing Data'])
@@ -371,7 +370,7 @@ st.plotly_chart(plot2)'''
         st.code(code, language='python')
 
         st.markdown('**Fix data imbalance**')
-        st.image("/Users/andrewpullar/Downloads/resample.png")
+        st.image("resample.png")
         code = '''#Fix data imbalance
         from imblearn.over_sampling import RandomOverSampler
         fix = RandomOverSampler(random_state=0)
@@ -387,7 +386,7 @@ st.plotly_chart(plot2)'''
 
 
     elif choice == 'Modeling':
-            st.sidebar.image("https://cdn-icons-png.flaticon.com/512/5190/5190582.png", width=125)
+            st.sidebar.image("modeling sidebar.png", width=125)
             st.sidebar.markdown("**Help:** ")
             learn = st.sidebar.selectbox("What would you like to learn more about?", listo)
             if learn == "Page Description":
