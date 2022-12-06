@@ -27,7 +27,7 @@ import json
 
 import requests
 
-df = pd.read_csv('/Users/andrewpullar/Downloads/WA_Fn-UseC_-Telco-Customer-Churn.csv')
+df = pd.read_csv('WA_Fn-UseC_-Telco-Customer-Churn.csv')
 
 df['TotalCharges'] = pd.to_numeric(df['TotalCharges'], errors='coerce')
 df['TotalCharges'] = df['TotalCharges'].fillna(0)
@@ -138,7 +138,7 @@ def check_password():
 
 if check_password():
     #st.sidebar.info('This app is created to predict Customer Churn')
-    churn = pd.read_csv('/Users/andrewpullar/Downloads/Telco_customer_churn.csv')
+    churn = pd.read_csv('Telco_customer_churn.csv')
     activities = ["Home", "Exploratory Data Analysis", "Data Cleaning", "Modeling"]
     info = '''Select one of the options in the dropdown list to access specific page'''
     choice = st.sidebar.selectbox("Choose a page: ",activities, help = info)
