@@ -201,7 +201,7 @@ if check_password():
                     csv = convert_df(churn)
 
                     st.download_button(
-                        "Download telco dataset",
+                        "Download dataset",
                         csv,
                         "file.csv",
                         "text/csv",
