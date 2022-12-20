@@ -191,9 +191,8 @@ if check_password():
                     ('View telco dataset', 'Generate profile report','Descriptive statistics'))
 
                 if option == "View telco dataset":
-                    st.subheader('Dataframe:')
-                    n, m = df.shape
-                    st.write(f'<p style="font-size:130%">Dataset contains {n} rows and {m} columns.</p>', unsafe_allow_html=True)  
+                    r, c = df.shape
+                    st.write(f'<p style="font-size:130%"> The dataset contains {r} rows and {c} columns.</p>', unsafe_allow_html=True)  
                     dataframe = st.dataframe(churn)
 
                     @st.experimental_memo
