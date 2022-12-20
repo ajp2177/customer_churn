@@ -223,25 +223,24 @@ if check_password():
                         pr.to_file("Analysis.html")
 
                 elif option == "Descriptive statistics":
-                    st.write(churn.describe())
+                    desc_data = st.dataframe(churn.describe())
                     st.markdown("**Code:**")
                     code = '''churn.describe()'''
                     st.code(code, language='python')
                     
                     
-                    dataframe = st.dataframe(churn)
 
                     @st.experimental_memo
-                    def convert_df(churn):
-                        return churn.to_csv(index=False).encode('utf-8')
+                    def convert_df(desc_data):
+                        return desc_data.to_csv(index=False).encode('utf-8')
 
 
-                    csv = convert_df(churn)
+                    csv = convert_df(data_desc_data)
 
                     st.download_button(
                         "Download dataset",
                         csv,
-                        "file.csv",
+                        "descriptive_statistics.csv",
                         "text/csv",
                         key='download-csv'
                     )
