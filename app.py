@@ -238,7 +238,7 @@ if check_password():
                     descriptive_csv = convert_df(ds)
 
                     st.download_button(
-                        "Download predictions",
+                        "Download descriptive stats",
                         descriptive_csv,
                         "descriptive_statistics.csv",
                         "text/csv",
