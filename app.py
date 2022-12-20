@@ -239,7 +239,7 @@ if check_password():
 
                     st.download_button(
                         "Download predictions",
-                        desriptive_csv,
+                        descriptive_csv,
                         "descriptive_statistics.csv",
                         "text/csv",
                         key='download-csv'
