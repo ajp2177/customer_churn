@@ -223,12 +223,27 @@ if check_password():
                         pr.to_file("Analysis.html")
 
                 elif option == "Descriptive statistics":
-                    st.dataframe(churn.describe())
+                    d = st.dataframe(churn.describe())
                     st.markdown("**Code:**")
                     code = '''churn.describe()'''
                     st.code(code, language='python')
                     
-                    
+                    @st.cache
+
+
+                    def convert_df(d):
+                        return d.to_csv(index=False).encode('utf-8')
+
+
+                    descriptive_csv = convert_df(d)
+
+                    st.download_button(
+                        "Download predictions",
+                        desriptive_csv,
+                        "descriptive_statistics.csv",
+                        "text/csv",
+                        key='download-csv'
+                    )
 
 
                     
