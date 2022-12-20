@@ -205,7 +205,7 @@ if check_password():
                     st.download_button(
                         "Download dataset",
                         csv,
-                        "file.csv",
+                        "telco_dataset.csv",
                         "text/csv",
                         key='download-csv'
                     )
