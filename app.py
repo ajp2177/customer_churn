@@ -228,17 +228,26 @@ if check_password():
                     code = '''churn.describe()'''
                     st.code(code, language='python')
                     
+                     @st.experimental_memo
 
 
-                    csv = desc_data
+                    def convert_df(desc_data):
+                        return desc_data.to_csv(index=False).encode('utf-8')
+
+
+                    descriptive_csv = convert_df(desc_data))
 
                     st.download_button(
-                        "Download dataset",
-                        csv,
+                        "Download predictions",
+                        desriptive_csv,
                         "descriptive_statistics.csv",
                         "text/csv",
                         key='download-csv'
                     )
+                    
+
+
+                    
 
             with tab2:
 
