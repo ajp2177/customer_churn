@@ -224,18 +224,18 @@ if check_password():
 
                 elif option == "Descriptive statistics":
                     d = st.dataframe(churn.describe())
+                    ds = pd.DataFrame(churn.describe())
                     st.markdown("**Code:**")
                     code = '''churn.describe()'''
                     st.code(code, language='python')
-                    
-                    @st.cache
+                   
 
 
-                    def convert_df(d):
-                        return d.to_csv(index=False).encode('utf-8')
+                    def convert_df(ds):
+                        return ds.to_csv(index=False).encode('utf-8')
 
 
-                    descriptive_csv = convert_df(d)
+                    descriptive_csv = convert_df(ds)
 
                     st.download_button(
                         "Download predictions",
