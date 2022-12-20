@@ -218,9 +218,15 @@ if check_password():
                 elif option == "Generate profile report":
                     pr = churn.profile_report()
                     st_profile_report(pr)
-                    save = st.button("Save report")
-                    if save:
-                        pr.to_file("Analysis.html")
+                    #save = st.button("Save report")
+                    #if save:
+                       # pr.to_file("Analysis.html")
+                        
+                    export = pr.to_html()
+                    st.download_button(label="Download Full Report", data=export, file_name='report.html')
+                        
+                   
+                        
 
                 elif option == "Descriptive statistics":
                     d = st.dataframe(churn.describe())
