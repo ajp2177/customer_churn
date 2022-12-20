@@ -191,8 +191,10 @@ if check_password():
                     ('View telco dataset', 'Generate profile report','Descriptive statistics'))
 
                 if option == "View telco dataset":
-                    r, c = df.shape
-                    st.write(f'<p style="font-size:130%"> The dataset contains {r} rows and {c} columns.</p>', unsafe_allow_html=True)  
+                    cb = st.checkbox("Shape of dataset")
+                    if cb:
+                        r, c = df.shape
+                        st.write(f'<p style="font-size:130%"> The dataset contains {r} rows and {c} columns.</p>', unsafe_allow_html=True)  
                     dataframe = st.dataframe(churn)
 
                     @st.experimental_memo
