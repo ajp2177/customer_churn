@@ -191,6 +191,9 @@ if check_password():
                     ('View telco dataset', 'Generate profile report','Descriptive statistics'))
 
                 if option == "View telco dataset":
+                    st.subheader('Dataframe:')
+                    n, m = df.shape
+                    st.write(f'<p style="font-size:130%">Dataset contains {n} rows and {m} columns.</p>', unsafe_allow_html=True)  
                     dataframe = st.dataframe(churn)
 
                     @st.experimental_memo
@@ -225,6 +228,24 @@ if check_password():
                     st.markdown("**Code:**")
                     code = '''churn.describe()'''
                     st.code(code, language='python')
+                    
+                    
+                    dataframe = st.dataframe(churn)
+
+                    @st.experimental_memo
+                    def convert_df(churn):
+                        return churn.to_csv(index=False).encode('utf-8')
+
+
+                    csv = convert_df(churn)
+
+                    st.download_button(
+                        "Download dataset",
+                        csv,
+                        "file.csv",
+                        "text/csv",
+                        key='download-csv'
+                    )
 
             with tab2:
 
