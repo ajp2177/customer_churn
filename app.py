@@ -235,7 +235,7 @@ if check_password():
                         return desc_data.to_csv(index=False).encode('utf-8')
 
 
-                    descriptive_csv = convert_df(desc_data))
+                    descriptive_csv = convert_df(desc_data)
 
                     st.download_button(
                         "Download predictions",
