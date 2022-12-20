@@ -228,9 +228,7 @@ if check_password():
                     code = '''churn.describe()'''
                     st.code(code, language='python')
                     
-                    
-
-                    @st.experimental_memo
+                   
                     def convert_df(desc_data):
                         return desc_data.to_csv(index=False).encode('utf-8')
 
