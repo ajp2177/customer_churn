@@ -228,12 +228,9 @@ if check_password():
                     code = '''churn.describe()'''
                     st.code(code, language='python')
                     
-                   
-                    def convert_df(desc_data):
-                        return desc_data.to_csv(index=False).encode('utf-8')
 
 
-                    csv = convert_df(desc_data)
+                    csv = desc_data
 
                     st.download_button(
                         "Download dataset",
