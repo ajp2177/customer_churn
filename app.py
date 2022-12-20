@@ -225,12 +225,6 @@ if check_password():
                 elif option == "Descriptive statistics":
                     d = st.dataframe(churn.describe())
                     ds = pd.DataFrame(churn.describe())
-                    st.markdown("**Code:**")
-                    code = '''churn.describe()'''
-                    st.code(code, language='python')
-                   
-
-
                     def convert_df(ds):
                         return ds.to_csv(index=False).encode('utf-8')
 
@@ -244,6 +238,10 @@ if check_password():
                         "text/csv",
                         key='download-csv'
                     )
+                    st.markdown("**Code:**")
+                    code = '''churn.describe()'''
+                    st.code(code, language='python')
+                   
 
 
                     
