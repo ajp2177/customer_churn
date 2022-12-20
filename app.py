@@ -222,8 +222,8 @@ if check_password():
                     #if save:
                        # pr.to_file("Analysis.html")
                         
-                    export = pr.to_html()
-                    st.download_button(label="Download Full Report", data=export, file_name='report.html')
+                    profile_r = pr.to_html()
+                    st.download_button(label="Download Profile Report", data = profile_r, file_name='profile_report.html')
                         
                    
                         
