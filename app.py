@@ -534,6 +534,10 @@ st.plotly_chart(plot2)'''
                                    "Prediction": output})
                 st.markdown("Previous predictions made:")
                 st.write(pd.DataFrame(get_data()))
+                
+                
+                chart_data = pd.DataFrame(get_data())
+                st.line_chart(chart_data)
 
                 @st.cache(allow_output_mutation=True)
                 def get_data2():
