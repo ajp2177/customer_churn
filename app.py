@@ -531,13 +531,14 @@ st.plotly_chart(plot2)'''
                                    "tenure": tenure,
                                    "monthlycharges": monthly_charges,
                                    "totalcharges": total_charges,
-                                   "Prediction": output})
+                                   "Prediction": output}
+                                   "Risk probability": output_prob)
                 st.markdown("Previous predictions made:")
                 st.write(pd.DataFrame(get_data()))
                 
                 
                 chart_data = pd.DataFrame(get_data())
-                st.line_chart(chart_data['Prediction'])
+                st.line_chart(chart_data['Risk probability'])
 
                 @st.cache(allow_output_mutation=True)
                 def get_data2():
