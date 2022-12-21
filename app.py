@@ -537,7 +537,7 @@ st.plotly_chart(plot2)'''
                 
                 
                 chart_data = pd.DataFrame(get_data())
-                st.line_chart(chart_data)
+                st.line_chart(chart_data['Prediction'])
 
                 @st.cache(allow_output_mutation=True)
                 def get_data2():
