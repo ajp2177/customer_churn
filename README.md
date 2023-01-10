@@ -3,4 +3,3 @@
 </p>
 
 [![Live in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ajp2177-customer-churn-app-h7rxv1.streamlit.app/)
-
