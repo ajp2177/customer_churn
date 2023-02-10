@@ -1,31 +1,34 @@
 import streamlit as st
-def main():
-    st.title("User Management Page")
+import smtplib
 
-    username = st.text_input("Username")
-    password = st.text_input("Password", type='password')
+# Define the names and credentials of the users
+names = ["John", "Jane", "Jim"]
+usernames = ["john123", "jane456", "jim789"]
+passwords = ["pwJohn", "pwJane", "pwJim"]
 
-    if st.button("Submit"):
-        if username == "admin" and password == "password":
-            st.success("Login successful")
-        else:
-            st.error("Incorrect login or password")
-    
-    if st.checkbox("Reset username"):
-        new_username = st.text_input("Enter new username")
-        if st.button("Update username"):
-            username = new_username
-            st.success("Username updated successfully")
-    
-    if st.checkbox("Reset password"):
-        new_password = st.text_input("Enter new password", type='password')
-        confirm_password = st.text_input("Confirm new password", type='password')
-        if st.button("Update password"):
-            if new_password == confirm_password:
-                password = new_password
-                st.success("Password updated successfully")
-            else:
-                st.error("Password and confirmation do not match")
+# Prompt the user to select their name
+selected_name = st.selectbox("Select your name:", names)
 
-if __name__ == '__main__':
-    main()
+# Find the index of the selected name in the names list
+index = names.index(selected_name)
+
+# Retrieve the corresponding username and password
+username = usernames[index]
+password = passwords[index]
+
+# Set up the email server and send the email to the user
+if st.button("Send email"):
+    try:
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.ehlo()
+        server.starttls()
+        server.login("your_email@gmail.com", "your_email_password")
+
+        subject = "Username and Password"
+        body = "Username: " + username + "\nPassword: " + password
+
+        msg = f"Subject: {subject}\n\n{body}"
+        server.sendmail("your_email@gmail.com", selected_name + "@gmail.com", msg)
+        st.success("Email sent successfully.")
+    except:
+        st.error("Error: Email not sent.")
