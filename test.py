@@ -1,6 +1,10 @@
 import streamlit as st
 import smtplib
 
+
+st.image('example_image_error.png')
+
+
 # Define the names and credentials of the users
 names = ["John", "Jane", "Jim"]
 usernames = ["john123", "jane456", "jim789"]
